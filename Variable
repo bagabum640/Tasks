@@ -1,0 +1,21 @@
+using System;
+
+namespace Task
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int countVariable = 10;
+            string task = "Переменные";
+            string studentName = "Alexander";
+            bool isHomoSapiens = true;
+            string studentCountry = "Russia";
+            int studentAge = 29;
+            float studentWeight = 85.4f;
+            double studentHeight = 179.24;
+            int fingersCount = 20;
+            char firstLetterSurname = 'P';
+        }
+    }
+}
