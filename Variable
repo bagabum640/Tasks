@@ -6,16 +6,16 @@ namespace Task
     {
         static void Main(string[] args)
         {
-            int countVariable = 10;
+            sbyte countVariable = 10;
             string task = "Переменные";
-            string studentName = "Alexander";
-            bool isHomoSapiens = true;
-            string studentCountry = "Russia";
+            bool isHomoSapiens = true;            
             int studentAge = 29;
             float studentWeight = 85.4f;
             double studentHeight = 179.24;
-            int fingersCount = 20;
+            byte fingersCount = 20;
             char firstLetterSurname = 'P';
+            short eyesCount = 2;
+            ulong hairCount = 23458742;
         }
     }
 }
