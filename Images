@@ -1,0 +1,19 @@
+using System;
+
+namespace Task
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int lengthRow = 3;
+            int allImages = 52;
+            int fullRow;
+            int excessImages;
+                       
+            Console.WriteLine("Количество полных рядов: " + allImages / lengthRow);
+            Console.WriteLine("Количество лишних картинок: " + allImages % lengthRow);
+        }
+    }
+}
