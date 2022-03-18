@@ -6,14 +6,16 @@ namespace Task
     {
         static void Main(string[] args)
         {
-
             int lengthRow = 3;
             int allImages = 52;
-            int fullRow;
+            int fullRows;
             int excessImages;
-                       
-            Console.WriteLine("Количество полных рядов: " + allImages / lengthRow);
-            Console.WriteLine("Количество лишних картинок: " + allImages % lengthRow);
+
+            fullRows = allImages / lengthRow;
+            excessImages = allImages % lengthRow;
+
+            Console.WriteLine("Количество полных рядов: " + fullRows);
+            Console.WriteLine("Количество лишних картинок: " + excessImages);
         }
     }
 }
