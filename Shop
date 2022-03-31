@@ -9,16 +9,17 @@ namespace Task
             int amountGold;
             int amountCrystal;
             int priceCrystal;
-            int restGold;
-
+            
             priceCrystal = 13;
 
-            Console.WriteLine("Сколько у вас золота:");
+            Console.WriteLine("Сколько у вас золота?");
             amountGold = Convert.ToInt32(Console.ReadLine());
-            amountCrystal = amountGold / priceCrystal;
-            restGold = amountGold % priceCrystal;
+            Console.WriteLine("Кристаллы сегодня по 13 золотых, сколько вы хотите купить?");
+            amountCrystal = Convert.ToInt32(Console.ReadLine());
+                        
+            amountGold -= amountCrystal * priceCrystal;
 
-            Console.WriteLine($"Куплено кристаллов: " + amountCrystal + "\nОстаток золота: " + restGold);
+            Console.WriteLine($"Куплено кристаллов: " + amountCrystal + "\nОстаток золота: " + amountGold);
         }
     }
 }
