@@ -5,22 +5,24 @@ namespace Task
     class Program
     {
         static void Main(string[] args)
-        {            
+        {
             int amountOldLedies;
             int timeOfVisit;
             int waitingTime;
             int waitingHours;
             int waitingMinutes;
+            int amountMinutes;
 
             timeOfVisit = 10;
+            amountMinutes = 60;
 
             Console.WriteLine("Сколько старушек в очереди?:");
             amountOldLedies = Convert.ToInt32(Console.ReadLine());
             waitingTime = amountOldLedies * timeOfVisit;
-            waitingHours = waitingTime / 60;
-            waitingMinutes = waitingTime % 60;
+            waitingHours = waitingTime / amountMinutes;
+            waitingMinutes = waitingTime % amountMinutes;
 
-            Console.WriteLine($"Вы должны отстоять в очереди " + waitingHours + " часа и " + waitingMinutes + " минут.");
+            Console.WriteLine($"Вы должны отстоять в очереди " + waitingHours + " часа и " + waitingMinutes + " минут.");            
         }
     }
 }
