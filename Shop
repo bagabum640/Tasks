@@ -7,7 +7,7 @@ namespace Task
         static void Main(string[] args)
         {
             int amountGold;
-            int amountCrystal;
+            int amountCrystals;
             int priceCrystal;
             
             priceCrystal = 13;
@@ -15,11 +15,11 @@ namespace Task
             Console.WriteLine("Сколько у вас золота?");
             amountGold = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Кристаллы сегодня по 13 золотых, сколько вы хотите купить?");
-            amountCrystal = Convert.ToInt32(Console.ReadLine());
+            amountCrystals = Convert.ToInt32(Console.ReadLine());
                         
-            amountGold -= amountCrystal * priceCrystal;
+            amountGold -= amountCrystals * priceCrystal;
 
-            Console.WriteLine($"Куплено кристаллов: " + amountCrystal + "\nОстаток золота: " + amountGold);
+            Console.WriteLine($"Куплено кристаллов: " + amountCrystals + "\nОстаток золота: " + amountGold);
         }
     }
 }
