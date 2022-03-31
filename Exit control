@@ -1,0 +1,26 @@
+using System;
+
+namespace Task
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string userMessage;
+            string conditionOfExit;
+
+            conditionOfExit = "exit";
+
+            Console.Write("Введите сообщение: ");
+            userMessage = Console.ReadLine();
+
+            while (userMessage!= conditionOfExit)
+            {
+                Console.Write("Не угадали, введите другое сообщение: ");
+                userMessage = Console.ReadLine();
+            }
+
+            Console.WriteLine("Верно!");
+        }
+    }
+}
