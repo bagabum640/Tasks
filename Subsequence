@@ -1,0 +1,24 @@
+namespace Task
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int firstNumber;
+            int step;
+            int maxValue;
+            int count;
+
+            firstNumber = 5;
+            step = 7;
+            maxValue = 100;
+            count = firstNumber;
+
+            while (count < maxValue)
+            {
+                Console.WriteLine(count);
+                count += step;
+            }                        
+        }
+    }
+}
