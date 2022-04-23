@@ -9,14 +9,16 @@ namespace Task2
     internal class Program
     {
         static void Main(string[] args)
-        {            
+        {
+            int firstValue;
             int maxValue;
             int step;
-                       
+               
+            firstValue = 5;
             maxValue = 96;
             step = 7;
 
-            for (int i = 5; i <= maxValue; i+=step)
+            for (int i = firstValue; i <= maxValue; i+=step)
             {
                 Console.WriteLine(i);
             }
