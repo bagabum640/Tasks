@@ -12,13 +12,17 @@ namespace Task2
         {
             int randomNumber;
             int sumPositiveNumbers=0;
+            int minValue = 0;
+            int maxValue = 101;
+            int MultipleOfFirstNumber = 3;
+            int MultipleOfSecondNumber = 5;
 
             Random random = new Random();
-            randomNumber = random.Next(0, 11);
+            randomNumber = random.Next(minValue, maxValue);
 
-            for (int i = 0; i <= randomNumber; i++)
+            for (int i = minValue; i <= randomNumber; i++)
             {
-                if (i%3==0 || i%5==0)
+                if (i% MultipleOfFirstNumber == 0 || i% MultipleOfSecondNumber == 0)
                 {
                     sumPositiveNumbers += i;
                 }                
