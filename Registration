@@ -1,0 +1,72 @@
+using System;
+
+namespace Task
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string command;
+            string race = "unknown";
+            string sex = "unknown";
+            string name = "unknown";
+            string specialization = "unknown";
+            string zodiakSign = "unknown";
+            ConsoleKeyInfo key;
+            bool isExit = false;
+
+            Console.WriteLine("Ах да, мы ожидали Вас! Вам нужно зарегистрироваться прежде, чем вас официально освободят. Выбирайте сами, что указать в бумагах.");
+
+            while (isExit != true)
+            {
+                Console.WriteLine($"Раса:{race}\nПол:{sex}\nИмя:{name}\nКласс:{specialization}\nЗнак зодиака:{zodiakSign}" +
+                    $"\n\nВведите команду для заполнения сведений: \nRace - чтобы выбрать расу\nSex - чтобы выбрать пол\nName - чтобы выбрать имя" +
+                    $"\nClass - чтобы выбрать класс\nSign - чтобы выбрать знак зодиака\nExit - чтобы закончить регистрацию\n");
+                command = Console.ReadLine();
+                command.ToLower();
+                
+                switch (command)
+                {
+                    case "race":                        
+                        Console.Write("Введите расу: ");
+                        race = Console.ReadLine();
+                        Console.Clear();
+                        break;
+                    case "sex":                        
+                        Console.WriteLine("Нажмите M чтобы выбрать мужской пол или F чтобы выбрать женский пол.");
+                        key = Console.ReadKey();
+                        if (key.Key == ConsoleKey.M)
+                           sex = "Man";
+                        else if (key.Key == ConsoleKey.F)
+                           sex = "Female";
+                        else
+                            Console.WriteLine("Вы нажали неверную клавишу, такого пола не существует!");
+                        Console.Clear();
+                        break;
+                    case "name":
+                        Console.Write("Введите имя: ");
+                        name = Console.ReadLine();
+                        Console.Clear();
+                        break;
+                    case "class":
+                        Console.Write("Введите название класса: ");
+                        specialization = Console.ReadLine();
+                        Console.Clear();
+                        break;
+                    case "sign":
+                        Console.WriteLine("Вы родились под определенным знаком, под каким?");
+                        zodiakSign = Console.ReadLine();
+                        Console.Clear();
+                        break;
+                    case "exit":
+                        isExit = true;
+                        Console.WriteLine("\nОчень хорошо! А теперь пройдите далее, но не забудьте алебастровое блюдо!");
+                        break;
+                    default:
+                        Console.Clear();
+                        break;
+                }
+            }            
+        } 
+    }
+}
