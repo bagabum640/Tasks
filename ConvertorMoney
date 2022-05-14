@@ -9,19 +9,21 @@ namespace Task
             double pesos;
             double doubloons;
             double golds;
+            double quantity;
             bool isExit = false;
             ConsoleKeyInfo key;
             float valuePeso = 1;
             float valueDoubloon = 73;
             float valueGold = 85;
 
-            CreditToAccount(out pesos, 1000, 3000); //числа взяты просто для создания случайного баланса на счете
-            CreditToAccount(out doubloons, 50, 150);
-            CreditToAccount(out golds, 50, 150);
-
+            Random random = new Random();
+            pesos = random.Next(1000, 3000); //числа взяты просто для создания случайного баланса на счете
+            doubloons = random.Next(50, 150);
+            golds = random.Next(50, 150);
+            
             while (isExit == false)
             {
-                ShowBalance(pesos, doubloons, golds);
+                Console.WriteLine($"У вас на счете: \n{pesos} песо \n{doubloons} дублонов \n{golds} золотых \n ");
                 Console.WriteLine("\nНажмите: " +
                     "\n1 на NumPad чтобы перейти к обмену валют песо-дублон " +
                     "\n2 на NumPad чтобы перейти к обмену валют песо-золотой " +
@@ -38,11 +40,40 @@ namespace Task
 
                         switch (key.Key)
                         {
-                            case ConsoleKey.D:
-                                Convertor(ref pesos, ref doubloons, valuePeso, valueDoubloon);
+                            case ConsoleKey.D:                                                                
+                                                                
+                                Console.WriteLine("Сколько монет вы хотите купить?");
+                                quantity = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+                                Console.Clear();
+
+                                if (pesos >= quantity * valueDoubloon / valuePeso)
+                                {
+                                    doubloons += quantity;
+                                    pesos -= Math.Round(quantity * valueDoubloon / valuePeso, 2);
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("Операция не может быть выполнена - недостаточно средств!\n\n\n");
+                                    Console.ResetColor();
+                                }
                                 break;
                             case ConsoleKey.P:
-                                Convertor(ref doubloons, ref pesos, valueDoubloon, valuePeso);
+                                Console.WriteLine("Сколько монет вы хотите купить?");
+                                quantity = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+                                Console.Clear();
+
+                                if (doubloons >= quantity * valuePeso / valueDoubloon)
+                                {
+                                    pesos += quantity;
+                                    doubloons -= Math.Round(quantity * valuePeso / valueDoubloon, 2);
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("Операция не может быть выполнена - недостаточно средств!\n\n\n");
+                                    Console.ResetColor();
+                                }                                
                                 break;
                             default:
                                 Console.Clear();
@@ -57,10 +88,38 @@ namespace Task
                         switch (key.Key)
                         {
                             case ConsoleKey.G:
-                                Convertor(ref pesos, ref golds, valuePeso, valueGold);
+                                Console.WriteLine("Сколько монет вы хотите купить?");
+                                quantity = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+                                Console.Clear();
+
+                                if (pesos >= quantity * valueGold / valuePeso)
+                                {
+                                    golds += quantity;
+                                    pesos -= Math.Round(quantity * valueGold / valuePeso, 2);
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("Операция не может быть выполнена - недостаточно средств!\n\n\n");
+                                    Console.ResetColor();
+                                }
                                 break;
                             case ConsoleKey.P:
-                                Convertor(ref golds, ref pesos, valueGold, valuePeso);
+                                Console.WriteLine("Сколько монет вы хотите купить?");
+                                quantity = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+                                Console.Clear();
+
+                                if (golds >= quantity * valuePeso / valueGold)
+                                {
+                                    pesos += quantity;
+                                    golds -= Math.Round(quantity * valuePeso / valueGold, 2);
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("Операция не может быть выполнена - недостаточно средств!\n\n\n");
+                                    Console.ResetColor();
+                                }
                                 break;
                             default:
                                 Console.Clear();
@@ -75,10 +134,38 @@ namespace Task
                         switch (key.Key)
                         {
                             case ConsoleKey.G:
-                                Convertor(ref doubloons, ref golds, valueDoubloon, valueGold);
-                                break;
+                                Console.WriteLine("Сколько монет вы хотите купить?");
+                                quantity = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+                                Console.Clear();
+
+                                if (doubloons >= quantity * valueGold / valueDoubloon)
+                                {
+                                    golds += quantity;
+                                    doubloons -= Math.Round(quantity * valueGold / valueDoubloon, 2);
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("Операция не может быть выполнена - недостаточно средств!\n\n\n");
+                                    Console.ResetColor();
+                                }
+                                break;                                
                             case ConsoleKey.D:
-                                Convertor(ref golds, ref doubloons, valueGold, valueDoubloon);
+                                Console.WriteLine("Сколько монет вы хотите купить?");
+                                quantity = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+                                Console.Clear();
+
+                                if (golds >= quantity * valueDoubloon / valueGold)
+                                {
+                                    golds += quantity;
+                                    doubloons -= Math.Round(quantity * valueDoubloon / valueGold, 2);
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("Операция не может быть выполнена - недостаточно средств!\n\n\n");
+                                    Console.ResetColor();
+                                }
                                 break;
                             default:
                                 Console.Clear();
@@ -93,40 +180,6 @@ namespace Task
                         break;
                 }
             }
-        }
-
-        static void CreditToAccount(out double money, int minValue, int maxValue)
-        {
-            Random random = new Random();
-            money = random.Next(minValue, maxValue);
-        }
-
-        static void ShowBalance(double pesos, double doubloons, double golds)
-        {
-            Console.WriteLine($"У вас на счете: \n{pesos} песо \n{doubloons} дублонов \n{golds} золотых \n ");
-        }
-
-        static void Convertor(ref double tradedСurrency, ref double purchasedСurrency, float valueOfTradedCurrency, float valueOfPurchasedCurrency)
-        {
-            ConsoleKeyInfo key;
-            double quantity;
-
-            key = Console.ReadKey(true);
-            Console.WriteLine("Сколько монет вы хотите купить?");
-            quantity = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
-            Console.Clear();
-
-            if (tradedСurrency >= quantity * valueOfPurchasedCurrency/ valueOfTradedCurrency)
-            {
-                purchasedСurrency += quantity;
-                tradedСurrency -= Math.Round(quantity * valueOfPurchasedCurrency/ valueOfTradedCurrency, 2);
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Операция не может быть выполнена - недостаточно средств!\n\n\n");
-                Console.ResetColor();
-            }
-        }
+        } 
     }
 }
