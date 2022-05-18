@@ -6,9 +6,9 @@ namespace Task
     {
         static void Main(string[] args)
         {
-            double pesos;
-            double doubloons;
-            double golds;
+            double pesos = 2000;
+            double doubloons = 120;
+            double golds = 100;
             double quantity;
             bool isExit = false;
             ConsoleKeyInfo key;
@@ -19,11 +19,6 @@ namespace Task
             float goldToPeso = 0.01f;
             float doubloonToGold = 0.5f;
             float goldToDoubloon = 2;
-
-            Random random = new Random();
-            pesos = random.Next(1000, 3000); //числа взяты просто для создания случайного баланса на счете
-            doubloons = random.Next(50, 150);
-            golds = random.Next(50, 150);
 
             while (isExit == false)
             {
