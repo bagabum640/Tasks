@@ -1,0 +1,37 @@
+using System;
+
+namespace Task
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string userName;
+            char userSymbol;
+            int stringQuantity = 3;
+            int middleString = 1;
+
+            Console.WriteLine("What is your name?");
+            userName = Console.ReadLine();
+            Console.WriteLine("Enter any symbol");
+            userSymbol = Convert.ToChar(Console.Read());                        
+
+            for (int i = 0; i < stringQuantity; i++)
+            {
+                for (int j = 0; j < userName.Length+2; j++)
+                {
+                    if (i == middleString)
+                    {
+                        Console.Write(userSymbol);
+                        Console.Write(userName);
+                        Console.Write(userSymbol);
+                        break;
+                    }
+                    else
+                    Console.Write(userSymbol);
+                }
+                Console.WriteLine();
+            }            
+        }
+    }
+}
