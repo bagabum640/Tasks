@@ -22,8 +22,7 @@ namespace Task
                 {
                     multiplesCounter++;
                 }                
-            }
-            
+            }            
             Console.WriteLine($"A number = {givenNumber}, number of multiples {multiplesCounter}");
         }
     }
