@@ -1,0 +1,31 @@
+using System;
+
+namespace Task
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int givenNumber;
+            int sumGivenNumbers = 0;
+            int minSum = 100;
+            int maxSum = 1000;
+            int multiplesCounter = 0;
+            int minGivenNumber = 1;
+            int maxGivenNumber = 27;
+
+            Random random = new Random();
+            givenNumber = random.Next(minGivenNumber, maxGivenNumber + 1);
+            
+            while (sumGivenNumbers < maxSum)
+            {                
+                if (sumGivenNumbers > minSum)
+                {
+                    multiplesCounter++;                    
+                }
+                sumGivenNumbers += givenNumber;
+            }
+            Console.WriteLine($"A number = {givenNumber}, number of multiples {multiplesCounter}");
+        }
+    }
+}
