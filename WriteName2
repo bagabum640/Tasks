@@ -1,0 +1,40 @@
+using System;
+
+namespace Task
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string userName;
+            char userSymbol;
+            char[,] nameOutput;
+            int stringQuantity = 3;
+            int middleString = 1;
+
+            Console.WriteLine("What is your name?");
+            userName = Console.ReadLine();
+            Console.WriteLine("Enter any symbol");
+            userSymbol = Convert.ToChar(Console.Read());
+
+            nameOutput = new char [stringQuantity, userName.Length+2];
+
+            for (int i = 0; i < nameOutput.GetLength(0); i++)
+            {
+                for (int j = 0; j < nameOutput.GetLength(1); j++)
+                {
+                    if (i == middleString && j > 0 && j < nameOutput.GetLength(1)-1)
+                    {
+                        nameOutput[i, j] = userName[j-1];
+                    }
+                    else
+                    {
+                        nameOutput[i, j] = userSymbol;
+                    }                    
+                    Console.Write(nameOutput[i, j]);
+                }
+                Console.WriteLine();
+            }       
+        }
+    }
+}
