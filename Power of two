@@ -5,8 +5,8 @@ namespace Task
     class Program
     {
         static void Main(string[] args)
-        {            
-            int powerTwo = 0;
+        {
+            int powerNumber = 0;
             int randomNumber;
             double superiorNumber = 0;
             double baseNumber = 2;
@@ -19,9 +19,9 @@ namespace Task
             for (int i = 0; randomNumber >= superiorNumber; i++)
             {
                 superiorNumber = Math.Pow(baseNumber, i);
-                powerTwo = i;
+                powerNumber = i;
             }
-            Console.WriteLine(randomNumber + " " + superiorNumber + " " + powerTwo);        
+            Console.WriteLine(randomNumber + " " + superiorNumber + " " + powerNumber);
         }
     }
 }
