@@ -6,16 +6,18 @@ namespace Task
     {
         static void Main(string[] args)
         {
-            string text = "(())(()))(()";
+            string text = "(()()(()))";
             int bracketsCount = 0;
-            int depthBrackets = 0;
+            int depthBrackets = 0;            
 
             foreach (var symbol in text)
             {
                 if (symbol == '(')
                 {
                     bracketsCount++;
-                    depthBrackets++;
+                    
+                    if (bracketsCount > depthBrackets)                    
+                        depthBrackets++;                    
                 }
                 else
                 {
