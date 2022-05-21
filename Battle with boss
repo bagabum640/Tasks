@@ -30,10 +30,10 @@ namespace Task
 
             int coolDownBodySwap = 0;
 
-            float inputDamage = 0;
+            float inputDamage;
             float outputDamage = 0;
-            float damageOfTime = 0;
-            float damageSummon = 0;
+            float damageOfTime;
+            float damageSummon;
 
             int heightCursorPosition = 12;
             int offsetCursor = 5;
@@ -73,7 +73,7 @@ namespace Task
                     case ConsoleKey.NumPad2:
                         usedAbility = "Призыв ифрита";
 
-                        if (coolDownSummonIfrit == 0)
+                        if (coolDownSummonIfrit <= 0)
                         {
                             isIfritAlive = true;
                             ifritHealth = 100;
@@ -98,7 +98,8 @@ namespace Task
                         break;
 
                     case ConsoleKey.NumPad4:
-                        if (coolDownBodySwap == 0)
+
+                        if (coolDownBodySwap <= 0)
                         {
                             usedAbility = "Обмен телами";
 
@@ -167,7 +168,7 @@ namespace Task
                         coolDownBodySwap--;
                     }
 
-                    inputDamage = random.Next(minBossDamage, maxBossDamage) / playerArmor;
+                    inputDamage = random.Next(minBossDamage, maxBossDamage);
 
                     if (isUsedBodySwap == true)
                     {
@@ -177,15 +178,15 @@ namespace Task
                         {
                             damageSummon += ifritExplosionDamage;
                             Console.WriteLine("Ифрит взрывается и умирает.");
+                            offsetCursor++;
                         }
                     }
                     else
                     {
-                        curentPlayerHealth -= inputDamage;
+                        curentPlayerHealth -= inputDamage / playerArmor;
                     }
 
                     curentBossHealth -= (outputDamage + damageOfTime + damageSummon);
-
                     Console.ForegroundColor = ConsoleColor.Green;
 
                     switch (usedAbility)
@@ -225,6 +226,7 @@ namespace Task
                     }
 
                     Console.ForegroundColor = ConsoleColor.Red;
+
                     if (isUsedBodySwap == false)
                         Console.WriteLine($"Демон наносит игроку {inputDamage} урона.");
                     else
