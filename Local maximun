@@ -12,57 +12,49 @@ namespace Task
             int maxNumber = 100;
             int currentNumber;
             int previousNumber;
-            int nextNumber;
-            int cursorPositionLine = 0;
-            int cursorOffset = 4;
+            int nextNumber;            
             Random random = new Random();
 
             for (int i = 0; i < numbers.Length; i++)
             {
                 numbers[i] = random.Next(minNumber, maxNumber);
+                Console.Write(numbers[i] + "  ");
             }
 
-            for (int i = 0; i < numbers.Length; i++)
+            Console.WriteLine();
+            Console.WriteLine();
+
+            if (numbers [1] < numbers[0])
             {
-                Console.SetCursorPosition(cursorPositionLine, 0);
-                Console.Write(numbers[i] + "  ");
-                Console.SetCursorPosition(cursorPositionLine, 2);
+                Console.Write(numbers[0] + "  ");
+            }
+
+            previousNumber = numbers[0];
+            nextNumber = numbers[1];
+
+            for (int i = 0; i < numbers.Length; i++)
+            {                  
                 currentNumber = numbers[i];
 
                 if (i > 0)
                 {
-                    previousNumber = numbers[i - 1];
-                }
-                else
-                {
-                    previousNumber = numbers[i];
+                    previousNumber = numbers[i-1];
                 }
 
                 if (i < numbers.Length - 1)
                 {
                     nextNumber = numbers[i + 1];
-                }
-                else
-                {
-                    nextNumber = numbers[i];
-                }
+                }                
 
                 if (currentNumber > nextNumber && currentNumber > previousNumber)
                 {
-                    Console.Write(currentNumber);
+                    Console.Write(currentNumber + "  ");
                 }
+            }
 
-                if (i == 0 && currentNumber > nextNumber)
-                {
-                    Console.Write(currentNumber);
-                }
-
-                if (i == numbers.Length - 1 && currentNumber > previousNumber)
-                {
-                    Console.Write(currentNumber);
-                }
-
-                cursorPositionLine += cursorOffset;
+            if (numbers[numbers.Length - 1] > numbers[numbers.Length - 2])
+            {
+                Console.Write(numbers[numbers.Length - 1]);
             }
 
             Console.WriteLine();
