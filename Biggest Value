@@ -1,0 +1,49 @@
+using System;
+
+namespace Task
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] giverMatrix = new int[10, 10];
+            int minValueElement = 0;
+            int maxValueElement = 10;
+            int maxSearchElement = minValueElement;
+            int numberToWrite = 0;
+            Random random = new Random();
+
+            for (int i = 0; i < giverMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < giverMatrix.GetLength(1); j++)
+                {
+                    giverMatrix[i, j] = random.Next(minValueElement, maxValueElement);
+                    Console.Write(giverMatrix[i, j] + "  ");                                        
+
+                    if (maxSearchElement < giverMatrix[i, j])
+                    {
+                        maxSearchElement = giverMatrix[i, j];                        
+                    }                                      
+                }
+                Console.WriteLine();
+            }
+            
+            Console.SetCursorPosition(40, 0);
+            
+            for (int i = 0; i < giverMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < giverMatrix.GetLength(1); j++)
+                {
+                    if (maxSearchElement == giverMatrix[i, j])
+                    {
+                        giverMatrix[i, j] = numberToWrite;
+                    }
+                    Console.Write(giverMatrix[i, j] + "  ");                                        
+                }
+                Console.SetCursorPosition(40, i+1);
+            }
+
+            Console.WriteLine($"\n\nMax element is {maxSearchElement}");
+        }
+    }
+}
