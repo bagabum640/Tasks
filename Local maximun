@@ -1,0 +1,71 @@
+using System;
+
+namespace Task
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int arrayLength = 30;
+            int[] numbers = new int[arrayLength];
+            int minNumber = 0;
+            int maxNumber = 100;
+            int currentNumber;
+            int previousNumber;
+            int nextNumber;
+            int cursorPositionLine = 0;
+            int cursorOffset = 4;
+            Random random = new Random();
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] = random.Next(minNumber, maxNumber);
+            }
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.SetCursorPosition(cursorPositionLine, 0);
+                Console.Write(numbers[i] + "  ");
+                Console.SetCursorPosition(cursorPositionLine, 2);
+                currentNumber = numbers[i];
+
+                if (i > 0)
+                {
+                    previousNumber = numbers[i - 1];
+                }
+                else
+                {
+                    previousNumber = numbers[i];
+                }
+
+                if (i < numbers.Length - 1)
+                {
+                    nextNumber = numbers[i + 1];
+                }
+                else
+                {
+                    nextNumber = numbers[i];
+                }
+
+                if (currentNumber > nextNumber && currentNumber > previousNumber)
+                {
+                    Console.Write(currentNumber);
+                }
+
+                if (i == 0 && currentNumber > nextNumber)
+                {
+                    Console.Write(currentNumber);
+                }
+
+                if (i == numbers.Length - 1 && currentNumber > previousNumber)
+                {
+                    Console.Write(currentNumber);
+                }
+
+                cursorPositionLine += cursorOffset;
+            }
+
+            Console.WriteLine();
+        }
+    }
+}
